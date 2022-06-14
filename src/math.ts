@@ -1,6 +1,6 @@
-export var pi = 3.14;
+export const PI = 3.14;
 
 export function absolute(num: number) {
-  if (num < 0) return num * -1;
-  return num;
+    if (num < 0) return num * -1;
+    return num;
 }

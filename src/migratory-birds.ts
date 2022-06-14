@@ -1,26 +1,26 @@
 // https://www.hackerrank.com/challenges/migratory-birds/problem?h_r=next-challenge&h_v=zen
 
 export default function migratoryBirds(birds: number[]): number {
-  let counter = new Map<number, number>();
-  let maxSighting = 0;
-  let minBird = 0; // lowest id of max-sighting
+    const counter = new Map<number, number>();
+    let maxSighting = 0;
+    let minBird = 0; // lowest id of max-sighting
 
-  for (let bird of birds) {
-    let count = 1 + (counter.get(bird) ?? 0);
-    counter.set(bird, count);
+    for (const bird of birds) {
+        const count = 1 + (counter.get(bird) ?? 0);
+        counter.set(bird, count);
 
-    if (minBird == 0) {
-      minBird = bird;
-    } else if (count > maxSighting) {
-      minBird = bird;
-      // set max-sightings if this bird has now been spotted the most
-      maxSighting = count;
-    } else if (count == maxSighting && bird < minBird) {
-      minBird = bird;
+        if (minBird == 0) {
+            minBird = bird;
+        } else if (count > maxSighting) {
+            minBird = bird;
+            // set max-sightings if this bird has now been spotted the most
+            maxSighting = count;
+        } else if (count == maxSighting && bird < minBird) {
+            minBird = bird;
+        }
     }
-  }
 
-  return minBird;
+    return minBird;
 }
 
 /*
@@ -32,7 +32,6 @@ in:
 1 1 2 2 3
 out:
 1
-
 
 // attempt 1:
 // 1- build a hash of bird and count
