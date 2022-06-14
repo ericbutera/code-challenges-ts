@@ -45,7 +45,7 @@ calendar = gregorian
 
 enum Calendars {
   JULIAN,
-  GREGORIAN
+  GREGORIAN,
 }
 
 class Calendar {
@@ -56,41 +56,35 @@ class Calendar {
   }
 }
 
-const GREGORIAN_TRANSITION = 1917
-const CALENDAR_YEAR_MIN = 1700
-const CALENDAR_YEAR_MAX = 2700
+const GREGORIAN_TRANSITION = 1917;
+const CALENDAR_YEAR_MIN = 1700;
+const CALENDAR_YEAR_MAX = 2700;
 
 const ensureInclusive = (year: number) => {
-  if (year >= CALENDAR_YEAR_MIN && year <= CALENDAR_YEAR_MAX)
-    return true;
+  if (year >= CALENDAR_YEAR_MIN && year <= CALENDAR_YEAR_MAX) return true;
 
   throw new Error(`Year ${year} is not in inclusive range`);
-}
+};
 
 const calendarType = (year: number): Calendars => {
   ensureInclusive(year);
 
-  return year > GREGORIAN_TRANSITION
-    ? Calendars.GREGORIAN
-    : Calendars.JULIAN;
-}
+  return year > GREGORIAN_TRANSITION ? Calendars.GREGORIAN : Calendars.JULIAN;
+};
 
 const isLeap = (year: number): boolean => {
   switch (calendarType(year)) {
     case Calendars.GREGORIAN:
-      return (year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0);
+      return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
     case Calendars.JULIAN:
       return year % 4 === 0;
     default:
-      throw new Error('Invalid calendar');
+      throw new Error("Invalid calendar");
   }
-}
+};
 
 export default function dayOfProgrammer(year: number): string {
-  if (year == 1918)
-    return '26.09.1918';
+  if (year == 1918) return "26.09.1918";
 
-  return isLeap(year)
-    ? `12.09.${year}`
-    : `13.09.${year}`;
+  return isLeap(year) ? `12.09.${year}` : `13.09.${year}`;
 }

@@ -1,10 +1,13 @@
 # code challenges, typescript edition
 
-# run all tests
+## run all tests
+
 `npm run test`
 
-# run specific test
+## run specific test
+
 `npm run math`
 
-# reference
+## reference
+
 [typescript lang](https://www.typescriptlang.org/)

@@ -6,18 +6,17 @@ export default function migratoryBirds(birds: number[]): number {
   let minBird = 0; // lowest id of max-sighting
 
   for (let bird of birds) {
-    let count = 1 + (counter.get(bird) ?? 0)
-    counter.set(bird, count)
-
+    let count = 1 + (counter.get(bird) ?? 0);
+    counter.set(bird, count);
 
     if (minBird == 0) {
-      minBird = bird
+      minBird = bird;
     } else if (count > maxSighting) {
-      minBird = bird
+      minBird = bird;
       // set max-sightings if this bird has now been spotted the most
-      maxSighting = count
+      maxSighting = count;
     } else if (count == maxSighting && bird < minBird) {
-      minBird = bird
+      minBird = bird;
     }
   }
 
