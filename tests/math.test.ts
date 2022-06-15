@@ -1,4 +1,4 @@
-import { PI, absolute } from '../src/math'
+import { absolute, PI } from '../src/math'
 
 test('imports pi', () => {
     expect(PI).toBe(3.14)

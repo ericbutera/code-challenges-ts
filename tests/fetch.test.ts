@@ -1,7 +1,7 @@
-import fetch from 'node-fetch'
-const { Response } = jest.requireActual('node-fetch')
 import { mocked } from 'jest-mock'
+import fetch from 'node-fetch'
 import hello from '../src/fetch'
+const { Response } = jest.requireActual('node-fetch')
 
 jest.mock('node-fetch')
 
