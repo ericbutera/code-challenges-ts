@@ -1,4 +1,4 @@
-import dayOfProgrammer from '../src/day-of-the-programmer'
+import dayOfProgrammer from '../../src/hackerrank/day-of-the-programmer'
 
 test('example', () => {
     expect(dayOfProgrammer(1984)).toBe('12.09.1984')

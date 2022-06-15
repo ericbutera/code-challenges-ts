@@ -1,4 +1,4 @@
-import migratoryBirds from '../src/migratory-birds'
+import migratoryBirds from '../../src/hackerrank/migratory-birds'
 
 test('example', () => {
     const res = migratoryBirds([1, 1, 2, 2, 3])
