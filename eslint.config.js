@@ -1,20 +1,20 @@
 import eslintPlugin from '@typescript-eslint/eslint-plugin'
+import eslintParser from '@typescript-eslint/parser'
+import prettierPlugin from 'eslint-plugin-prettier'
 import eslintPluginYml from 'eslint-plugin-yml'
 
 export default [
   ...eslintPluginYml.configs['flat/recommended'],
   {
-    files: ['**/*.{ts}'],
+    files: ['**/*.ts'],
     languageOptions: {
-      parser: '@typescript-eslint/parser',
-      parserOptions: {
-        project: 'tsconfig.json',
-        ecmaVersion: 'latest',
-      },
+      parser: eslintParser,
     },
-    plugins: ['@typescript-eslint', 'prettier'],
+    plugins: {
+      '@typescript-eslint': eslintPlugin,
+      prettier: prettierPlugin,
+    },
     rules: {
-      ...eslintPlugin.configs.recommended.rules,
       'prettier/prettier': 'error',
     },
   },
