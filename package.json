@@ -6,15 +6,14 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "lint": "eslint . --ext .ts",
-    "lint-and-fix": "eslint . --ext .ts --fix",
+    "lint": "eslint .",
+    "lint-and-fix": "eslint . --fix",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "lint-staged": {
-    "*.{css,less,scss,html,json,jsx,js}": [
-      "prettier --write ."
-    ],
-    "*.js": "eslint --fix"
+    "*.ts": "prettier --config .prettierrc --write .",
+    "*.js": "eslint --fix",
+    "*.md": "prettier --list-different"
   },
   "author": "",
   "license": "MIT",
@@ -27,10 +26,11 @@
     "@typescript-eslint/parser": "^5.28.0",
     "commitizen": "^1.0.4",
     "cz-conventional-changelog": "^3.0.1",
-    "eslint": "^8.17.0",
+    "eslint": "^8.57.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-yml": "^1.16.0",
     "jest": "^27.5.1",
     "lint-staged": "^13.0.1",
     "prettier": "^2.7.0",
